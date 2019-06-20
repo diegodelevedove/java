@@ -1,12 +1,11 @@
- -- Python ---
+ -- Java ---
 
 
-Tudo que eu tiver de anotação de python vou jogando aqui
+Tudo que eu tiver de anotaÃ§Ã£o de Java vou jogando aqui
 
-Para Alterações por favor criar uma nova branch.
+Para AlteraÃ§Ãµes por favor criar uma nova branch.
 
-Python Para Análise de Dados,Automação,Ciência de Dados,Programação com Python, e demais coisas que eu for juntando de python aqui.
-
+JavaSE(Crud,Analise de Arquivos,Documentos,Alguma coisa de AnÃ¡lise de Dados com Gui,JSOUP e outras automaÃ§Ãµes)
       .-.
      (o.o) Heavy Metal will never Die.
       |=|   
