@@ -1,0 +1,58 @@
+--------- Hibernate Com RetroEngenharia ------------
+
+Modelo simples de crud com hibernate(Sem gui e nem web e Rodando no Console)
+Guardei tudo na mesma pasta,porém é melhor usar mvc ou outra organização de classes
+Nesse exemplo usaremos apenas hibernate + banco de dados SQL
+
+1 - Crie uma base de dados em um banco relacional
+2 - Crie um projeto e depois escolha o hibernate, nessa hora já
+aponte o Tipo de conexão JDBC e o endereço, além da classe padrão do SQLDialect
+(pode ser feito depois também essa configuração) Adcione uma nova e já aponte o driver da conexão
+3 - Adcione na biblioteca o jar da conexão mysql - mysql-connector-java versão que tu quiser ai
+4 - Veja a sua configuração no cfg.xml
+A básica é essa - Confirme se a conexão foi bem sucedida
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/suBasedeDados</property>
+    <property name="hibernate.connection.username">root</property>
+  </session-factory>
+</hibernate-configuration>
+
+----->  Agora vamos mapear o banco 
+
+Botão direito no pacote src
+Clique em hibernate 
+Clique em Assistente de Engenharia Reversa do Hibernate
+Selecione as Tabelas do banco que serão Mapeadas e Adicione tudo
+Finalizar
+
+--Pronto criou o Arquivo.reveng.xml
+
+***Atenção: Se você quiser criar o pojo e mapear depois também é possível
+
+-----> Agora vamos criar o POJO a classe e
+Botão direito no pacote src
+Clique em hibernate
+Clique em Arquivos Mapeamento Pojo e banco bla bla 
+Marque o hibernate.cfg e o reveng.xml e finalize (deixe o resto como está)
+
+Isso irá criar duas classes,  o hbm = que é hibernate bean mapping(Pegou nossa classe e criou um mapeamento em xml da nossa class
+
+Também Criou nosso bean(Classe.java)
+
+Conferir no arquivo.cfg.xml se criou a seguinte tag
+ <mapping resource="pastaQualquer/classeMapeada.hbm.xml"/>
+
+senão crie você ai na mão mesmo cupadi(veja a pasta direito)
+
+Pronto, a engenharia retro foi feita 
+
+Agora crie uma classe dão, e depois uma APP
+Veja o exemplo
+
+
+
+
+
