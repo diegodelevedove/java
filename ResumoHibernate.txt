@@ -1,0 +1,140 @@
+FrameWork de persistência - Hibernate - 
+
+ORM - Object Relational Mapping
+Ou Mapeamento de Objeto Relacional
+
+O hibernate é um framework voltado para a persistência de dados com linguagens de objetos (java,c#) com banco de dados
+SQL.
+
+O problema é que a linguagem (objetos) é mais volátil que as tabelas do banco(podemos criar mais objetos que tabelas, modificar mais fácilmente que o modelo do banco de dados e por isso a disparidade) surgindo a necessidade de remodelar o banco e recompilar a aplicação, a solução para isso é o ORM
+
+Para esse processo o ORM converte as clasess em um documento em XML através de uma API. Abstrai a logica e encapsula as instruções SQL dentre outras vantagens.
+
+
+- Usando o Netbeans - 
+
+Arquivos > novo Projeto > Java Web > NomeDoProjeto > Servidor(Glash Fish Jboss...) Hibernate --> ** Configura a Conexão: Escolha a conexão com o banco (Mysql ou outro - User + Pass) no caso de retro-engenharia(Criar o POJO baseado em uma Database, já pode ser configurado nessa etapa)
+
+Criado o Arquivo:hibernate.cfg.xml
+Ele configura a session com o banco já a HibernateUtil configura a conexão com a Dao.
+
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/mysql?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">####</property>
+    <property name="hibernate.connection.password">####</property>
+    <property name="hibernate.transaction.factory_class">true</property>
+    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.query.factory_class">org.hibernate.hql.internal.classic.ClassicQueryTranslatorFactory</property>
+  </session-factory>
+</hibernate-configuration>
+
+
+***  importante ->Faça o upload do JAR mysql-connector na Bibliotéca.
+
+
+/***** Definindo o hibernate cfg ********/
+
+hibernate.dialect = é a tradução do dos comandos sql para a database.
+hibernate.c.driver_class = é o drive do jdbc
+hibernate.connection.url = é a instancia da database.(caminho + porta + nome)
+hibernate.user = usuario
+hibernate.pass= senha
+...poll_size = quando definimos um limite de conexões
+...autocommit = permissão de comitar no jdbc automático
+**existem mais opções para mais bancos e tipos
+
+
+/*********** Criando o Arquivo de Ajuda HibernateUtil **********/
+Para usar o Hibernate, é necessário criar uma classe de ajuda que lide com a inicialização e que acesse o SessionFactory do Hibernate para obter um objeto de Sessão. A classe chama o método configure() do Hibernate, carrega o arquivo de configuração hibernate.cfg.xml e, em seguida, constrói o SessionFactory para obter o objeto de Sessão.
+
+->Botão direito no pacote de codigos fonte, propriedades,hibernate,hibernateUtil.
+
+
+POJO - Old Java Object
+
+Você pode criar o povo ou fazer a retro-engenharia da database.
+->Botão direito no pacote de codigos fonte, propriedades,hibernate,
+assistente de Engenharia Reversa do Hibernate.
+Não Altere em nada até aparecerem as tabelas do banco que você quer
+Fazer a retroengenharia.
+
+***Crianção do Pojo***
+
+->Botão direito no pacote de codigos fonte, propriedades,hibernate,assistente de mapeamento do hibernate e pojos de banco de dados
+
+Geraçõo do Código:
+ele vai usar o 
+hibernate.cfg.xml
+hibernate.reveng.xml
+
+marque - Código do Domínio(.java)
+Mapeamento de Xml
+
+Feito isso ele cria dois arquivos
+Pojo.java que é a classe bean
+e a classe.hbm.xml - hbm = hibernate bean mapping
+ou seja é a classe java mapeada em xml
+
+
+Até aqui usamos apenas configuração sem nenhum código feito tudo via design
+
+
+/*********** Construindo a GUI *************/
+
+A construção da GUI é para retorno dos dados apenas, para CRUD
+tem que existir também a DAO
+
+
+teException; 
+import org.hibernate.Session; 
+import org.hibernate.Transaction;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+
+Hibernat.reveng.xml
+é a classe mapeado,o pojo mapeado e convertido pra xml 
+
+
+
+************ TrobleShooting *************** 
+
+Problema na SessionFactory
+
+no hibernatingUtil a configuração padrão do caminho vem nula é preciso apontar um caminho como string para o xml da configuração do banco
+
+**Ex: sessionFactory = new AnnotationConfiguration().configure("src/hibernate.cfg.xml").buildSessionFactory();
+
+Transactio Erro:
+Quando as definições de acesso no banco estão errados
+
+nome e senha
+se não tiver senha coloque "" vazias mas preencha o campo no cfg.xml
+
+JDBCCOnnectionException:
+Adicione outra versão da conexão com o mysql.jar nas libs
+ 
+!-- Todo o problema relativo a retro-engenharia se base na configuração errada do hibernateUtil 
+isso quer dizer que a senha e o usuário além do drive e da conexão precisam estar definidos afim de fazer funcionar corretamente -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
