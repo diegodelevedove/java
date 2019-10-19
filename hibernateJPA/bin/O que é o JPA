@@ -13,6 +13,9 @@ o Que é o JPA?
 	
 	
 	Como Proceder!
+
+	0 - Crie uma base de dados apenas no seu banco mysql (Create database XXX) 
+	o nome da tabela será o nome da entidade ou usando a anotation @Column(variavel = "outronome") 
 	
 	1 Criamos um java bean que é a nossa classe principal de definição do objeto
 	nela incluimos a implementação do pacote de classes serializable da seguinte maneira
