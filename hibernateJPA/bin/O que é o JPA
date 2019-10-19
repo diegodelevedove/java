@@ -1,0 +1,48 @@
+
+o Que é o JPA?
+
+	Java  Persistence  API  (JPA)  é  a  especificação  padrão  da  plataforma  Java  EE (pacote javax.persistence) para 
+	
+	mapeamento objeto-relacional e persistência de dados.
+	
+	JPA é apenas uma especificação (JSR 338):
+	
+	http://download.oracle.com/otn-pub/jcp/persistence-2_1-fr-eval-spec/JavaPersistence.pdf
+	
+	Para trabalhar com JPA é preciso incluir no projeto uma implementação da API (ex: Hibernate).
+	
+	
+	Como Proceder!
+	
+	1 Criamos um java bean que é a nossa classe principal de definição do objeto
+	nela incluimos a implementação do pacote de classes serializable da seguinte maneira
+	
+	ex:
+	public class ClasseX implements Serializable{
+	
+	2 - Criar a Persistência - persistence.xml
+	
+	3 - Criar as anotations na classe bean
+	
+	4 - Cria uma app - Instanciar as Duas classes importantes (EntityManager e EntityManagerFactory)
+	EntityManagerFactory emf = Persistence.createEntityManagerFactory("hibernate-jpa"); -- Crio a instancia responsavel pela conexaõ
+	EntityManager em = emf.createEntityManager(); -- Crio o objeto com as definições 
+	em.getTransaction().begin(); -- Inicio a conexão
+	em.persist(cli1); -- Objetos que vão ser persistidos
+	em.persist(cli2); -- ||
+	em.persist(cli3); -- ||
+	em.getTransaction().commit(); --Faço o commit que é o equivalente a gravar a transação
+	
+	5 - As demais implementações seguem no exemplo
+	
+	6 - Lembre-se:Sempre que começar usar o begin e o commit para todas as modificações
+	
+	
+	Adendo:
+	
+	private static final long serialVersionUID = 1L; -> é um versionador para o Serializable,essa linha ou comando é usada para garatir que o objeto em série seja exatamente aquela
+	da qual a classe identifica na hora de carregar senão joga uma excessão.Como se fosse um hash
+	http://frequal.com/java/PracticalSerialVersionIdGuidelines.html
+	
+	
+	@GeneratedValue(strategy=GenerationType.IDENTITY) -> é um auto incremente só que feito pelo java e não definido lá no banco
