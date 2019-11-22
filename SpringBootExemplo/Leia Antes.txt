@@ -1,0 +1,6 @@
+Exempolo de Modelagem Com Spring Boot 2.0 Jpa e H2 
+Endpoints Com Rest
+Crud
+Maven
+**Não Substitui a @JsonBackREference por @JsonIgnore
+IDE:NEtBeans
