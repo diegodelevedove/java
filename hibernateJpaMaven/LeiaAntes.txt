@@ -1,0 +1,6 @@
+Alterei a versão do mysql da ultima pra 5.1,veja a versão
+do banco ou do seu mysql no local host
+Deixei algumas anotações dos erros no código
+Sem nenhum jar todos usando maven
+o progeto anterior foi usando o pacote do hibernate EntityManager + o Mysql conector
+
