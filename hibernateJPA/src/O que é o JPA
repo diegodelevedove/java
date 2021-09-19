@@ -1,48 +1,48 @@
 
-o Que È o JPA?
+o Que √© o JPA?
 
-	Java  Persistence  API  (JPA)  È  a  especificaÁ„o  padr„o  da  plataforma  Java  EE (pacote javax.persistence) para 
+	Java  Persistence  API  (JPA)  √©  a  especifica√ß√£o  padr√£o  da  plataforma  Java (pacote javax.persistence) para 
 	
-	mapeamento objeto-relacional e persistÍncia de dados.
+	mapeamento objeto-relacional e persist√™ncia de dados.
 	
-	JPA È apenas uma especificaÁ„o (JSR 338):
+	JPA √© apenas uma especifica√ß√£o (JSR 338):
 	
 	http://download.oracle.com/otn-pub/jcp/persistence-2_1-fr-eval-spec/JavaPersistence.pdf
 	
-	Para trabalhar com JPA È preciso incluir no projeto uma implementaÁ„o da API (ex: Hibernate).
+	Para trabalhar com JPA √© preciso incluir no projeto uma implementa√ß√£o da API (ex: Hibernate).
 	
 	
 	Como Proceder!
 	
-	1 Criamos um java bean que È a nossa classe principal de definiÁ„o do objeto
-	nela incluimos a implementaÁ„o do pacote de classes serializable da seguinte maneira
+	1 Criamos um java bean que √© a nossa classe principal de defini√ß√£o do objeto
+	nela incluimos a implementa√ß√£o do pacote de classes serializable da seguinte maneira
 	
 	ex:
 	public class ClasseX implements Serializable{
 	
-	2 - Criar a PersistÍncia - persistence.xml
+	2 - Criar a Persist√™ncia - persistence.xml
 	
 	3 - Criar as anotations na classe bean
 	
 	4 - Cria uma app - Instanciar as Duas classes importantes (EntityManager e EntityManagerFactory)
-	EntityManagerFactory emf = Persistence.createEntityManagerFactory("hibernate-jpa"); -- Crio a instancia responsavel pela conexaı
-	EntityManager em = emf.createEntityManager(); -- Crio o objeto com as definiÁıes 
-	em.getTransaction().begin(); -- Inicio a conex„o
-	em.persist(cli1); -- Objetos que v„o ser persistidos
+	EntityManagerFactory emf = Persistence.createEntityManagerFactory("hibernate-jpa"); -- Crio a instancia responsavel pela conexa√µ
+	EntityManager em = emf.createEntityManager(); -- Crio o objeto com as defini√ß√µes 
+	em.getTransaction().begin(); -- Inicio a conex√£o
+	em.persist(cli1); -- Objetos que v√£o ser persistidos
 	em.persist(cli2); -- ||
 	em.persist(cli3); -- ||
-	em.getTransaction().commit(); --FaÁo o commit que È o equivalente a gravar a transaÁ„o
+	em.getTransaction().commit(); --Fa√ßo o commit que √© o equivalente a gravar a transa√ß√£o
 	
-	5 - As demais implementaÁıes seguem no exemplo
+	5 - As demais implementa√ß√µes seguem no exemplo
 	
-	6 - Lembre-se:Sempre que comeÁar usar o begin e o commit para todas as modificaÁıes
+	6 - Lembre-se:Sempre que come√ßar usar o begin e o commit para todas as modifica√ß√µes
 	
 	
 	Adendo:
 	
-	private static final long serialVersionUID = 1L; -> È um versionador para o Serializable,essa linha ou comando È usada para garatir que o objeto em sÈrie seja exatamente aquela
-	da qual a classe identifica na hora de carregar sen„o joga uma excess„o.Como se fosse um hash
+	private static final long serialVersionUID = 1L; -> √© um versionador para o Serializable,essa linha ou comando √© usada para garatir que o objeto em s√©rie seja exatamente aquela
+	da qual a classe identifica na hora de carregar sen√£o joga uma excess√£o.Como se fosse um hash
 	http://frequal.com/java/PracticalSerialVersionIdGuidelines.html
 	
 	
-	@GeneratedValue(strategy=GenerationType.IDENTITY) -> È um auto incremente sÛ que feito pelo java e n„o definido l· no banco
+	@GeneratedValue(strategy=GenerationType.IDENTITY) -> √© um auto incremente s√≥ que feito pelo java e n√£o definido l√° no banco
