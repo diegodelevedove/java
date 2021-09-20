@@ -25,7 +25,7 @@ o Que é o JPA?
 	3 - Criar as anotations na classe bean
 	
 	4 - Cria uma app - Instanciar as Duas classes importantes (EntityManager e EntityManagerFactory)
-	EntityManagerFactory emf = Persistence.createEntityManagerFactory("hibernate-jpa"); -- Crio a instancia responsavel pela conexaõ
+	EntityManagerFactory emf = Persistence.createEntityManagerFactory("hibernate-jpa"); -- Crio a instancia responsavel pela conexaõ(o parâmetro é o nome da persistence.xml)
 	EntityManager em = emf.createEntityManager(); -- Crio o objeto com as definições 
 	em.getTransaction().begin(); -- Inicio a conexão
 	em.persist(cli1); -- Objetos que vão ser persistidos
@@ -46,3 +46,28 @@ o Que é o JPA?
 	
 	
 	@GeneratedValue(strategy=GenerationType.IDENTITY) -> é um auto incremente só que feito pelo java e não definido lá no banco
+	
+	Conexão com o SQL SERVER
+	
+	Possui algumas coisas diferentes,crie um usuário e lembre de permissionar a database
+	Crie também uma database antes de roda o script em ambos
+	
+	Persistence.xml com o set do sqlserver
+<properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://instância;Databasename=nomedadatabase"/>
+      <property name="javax.persistence.jdbc.user" value="usuariodadatabase"/>
+      <property name="javax.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+      <property name="javax.persistence.jdbc.password" value="12345"/>
+      <property name="hibernate.dialect" value="org.hibernate.dialect.SQLServerDialect"/>
+      <property name="javax.persistence.schema-generation.database.action" value="create"/>
+      <property name="hibernate.show_sql" value="true"/>
+    </properties>
+	
+	***Lembre-se de declarar a dependencia tanto do driver no pom quando adcionar nos serviços de conexão da ide
+	**outro detalhe: Dependências - JPA e SQLDriver
+	
+	
+	
+	
+	
+	
