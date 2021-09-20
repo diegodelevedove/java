@@ -37,6 +37,11 @@ o Que é o JPA?
 	
 	6 - Lembre-se:Sempre que começar usar o begin e o commit para todas as modificações
 	
+	** operações: ** 
+	em.persist(insert)
+	em.remove(delete)
+	em.refresh(update)
+	em.find(select)
 	
 	Adendo:
 	
@@ -65,6 +70,8 @@ o Que é o JPA?
 	
 	***Lembre-se de declarar a dependencia tanto do driver no pom quando adcionar nos serviços de conexão da ide
 	**outro detalhe: Dependências - JPA e SQLDriver
+	
+	
 	
 	
 	
